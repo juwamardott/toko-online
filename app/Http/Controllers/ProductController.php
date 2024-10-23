@@ -14,6 +14,9 @@ class ProductController extends Controller
     public function index()
     {
         //
+        $product = Product::all();
+        // dd($product);
+        return view('product.index', compact('product'));
     }
 
     /**
@@ -35,9 +38,11 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(Product $id)
     {
         //
+        $p = Product::find($id);
+        return view('product.detail_product', compact('p'));
     }
 
     /**
@@ -63,4 +68,6 @@ class ProductController extends Controller
     {
         //
     }
+
+    
 }
